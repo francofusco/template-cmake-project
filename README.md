@@ -17,6 +17,18 @@ the project in a simple way.
 **TODO**: additional instructions for options & co.
 
 
+## Install
+
+**TODO**: add install rules inside the CMakeLists.txt, then explain how to
+perform the install step. For the moment, the configuration is such that you
+can build your library and then add this to your `~/.bashrc`:
+
+```bash
+# Make the library visible to other CMake-based projects
+export foo_DIR="$HOME/path/to/foo/build"
+```
+
+
 ## Documentation
 
 You need [Doxygen](https://www.doxygen.nl/index.html) to build the

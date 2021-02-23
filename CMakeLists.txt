@@ -26,6 +26,9 @@ add_library(${PROJECT_NAME}
   src/${PROJECT_NAME}/${PROJECT_NAME}.cpp
 )
 
+# for header-only libraries:
+# add_library(${PROJECT_NAME} INTERFACE)
+
 target_include_directories(${PROJECT_NAME} PUBLIC
   include
 )
@@ -68,7 +71,7 @@ target_link_libraries(${PROJECT_NAME}_main ${PROJECT_NAME})
 # INSTALL #
 ###########
 
-# Allow other projects to find and install pendule_pi
+# Allow other projects to find and install the project
 export(TARGETS ${PROJECT_NAME}
   NAMESPACE ${PROJECT_NAME}::
   FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}Depends.cmake
