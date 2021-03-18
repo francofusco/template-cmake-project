@@ -96,7 +96,7 @@ install(
 include(CMakePackageConfigHelpers)
 
 # Create the "Config.cmake" file (to allow "find_package"-ing this project).
-configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}Config.cmake.in
+configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/${PROJECT_NAME}Config.cmake.in
   "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
   INSTALL_DESTINATION "lib/cmake/example"
   NO_SET_AND_CHECK_MACRO
@@ -129,7 +129,7 @@ export(
 # WARNING: this will work only if you do not play around the installed targets manually,
 # and if you do not change the install destination.
 configure_file(
-  uninstall.cmake.in
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmake/uninstall.cmake.in
   ${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake
   IMMEDIATE @ONLY
 )
