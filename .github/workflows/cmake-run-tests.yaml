@@ -1,4 +1,4 @@
-name: build-documentation
+name: run-tests
 on: [push]
 jobs:
   run-tests:
@@ -17,10 +17,11 @@ jobs:
     - name: Install dependencies
       working-directory: ${{github.workspace}}
       run: sudo apt install cmake
-    - name: Install GTest
-      run: .github/workflows/install-gtest.sh
     # Clone the repository.
     - uses: actions/checkout@v2
+    # Install GTest using the script from this repo
+    - name: Install GTest
+      run: .github/workflows/install-gtest.sh
     # Create the build space.
     - name: Create build directory
       working-directory: ${{github.workspace}}
