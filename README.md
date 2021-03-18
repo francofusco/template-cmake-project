@@ -1,5 +1,7 @@
 # PROJECT-NAME-HERE
 
+[![build-documentation](https://github.com/francofusco/template-cmake-project/workflows/build-documentation/badge.svg)](https://francofusco.github.io/template-cmake-project/)
+
 Brief description of this project.
 
 
