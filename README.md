@@ -28,6 +28,13 @@ can build your library and then add this to your `~/.bashrc`:
 export foo_DIR="$HOME/path/to/foo/build"
 ```
 
+```bash
+cmake ..
+cmake --build .
+cmake --install . # might require sudo!
+cmake -P uninstall.cmake # might require sudo!
+```
+
 
 ## Documentation
 

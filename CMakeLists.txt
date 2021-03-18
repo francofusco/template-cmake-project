@@ -80,7 +80,7 @@ install(
 
 # Copy all headers from the "include" folder
 install(
-  DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include
+  DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}
   DESTINATION include
 )
 
@@ -119,29 +119,21 @@ install(
 # Make the project usable from the build directory as well.
 export(
   EXPORT ${PROJECT_NAME}Targets
+  NAMESPACE ${PROJECT_NAME}::
   FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake"
 )
 
 
-# # add the possibility tu run 'make uninstall' to remove files added via 'make install'
-# # NOTE: this will remove files only, and not their parent directories.
-# # WARNING: this will work only if you do not play around the installed targets manually,
-# # and if you do not change the install destination.
-# configure_file(
-#   cmake_uninstall.cmake.in
-#   ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake
-#   IMMEDIATE @ONLY
-# )
-# add_custom_target(uninstall COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
-
-
-# # Allow other projects to find and install the project
-# export(TARGETS ${PROJECT_NAME}
-#   NAMESPACE ${PROJECT_NAME}::
-#   FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}Depends.cmake
-# )
-# configure_file(${PROJECT_NAME}Config.cmake.in ${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake @ONLY)
-# export(PACKAGE ${PROJECT_NAME})
+# add the possibility tu run 'make uninstall' to remove files added via 'make install'
+# NOTE: this will remove files only, and not their parent directories.
+# WARNING: this will work only if you do not play around the installed targets manually,
+# and if you do not change the install destination.
+configure_file(
+  uninstall.cmake.in
+  ${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake
+  IMMEDIATE @ONLY
+)
+add_custom_target(uninstall COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake")
 
 
 ###########
