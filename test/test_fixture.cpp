@@ -36,7 +36,6 @@ TEST_F(MyFixtureTest, Reset) {
   limited.countOnce(); // c = 2
   limited.reset(); // c = 0
   EXPECT_EQ(0, limited.currentCount());
-  EXPECT_EQ(1,2); // TODO: remove it after checking that test cause CI failure ;)
 }
 
 
