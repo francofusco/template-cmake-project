@@ -92,8 +92,8 @@ environment variable `foo_DIR` that contains the path to the build location:
 export foo_DIR="$HOME/path/to/foo/build"
 ```
 
-You can add such line to your `.bashrc` to "make it permanent". Thanks to this
-export, other CMake projects should be able to use this one by calling
+You can add the line above to your `.bashrc` to "make it permanent". Thanks
+to this export, other CMake projects should be able to use this one by calling
 
 ```cmake
 # choose one ;)
@@ -104,26 +104,39 @@ find_package(foo REQUIRED)
 
 ## Documentation
 
-You need [Doxygen](https://www.doxygen.nl/index.html) to build the
-documentation. On Ubuntu/Debian, it should be possible to install them via:
+The documentation for this project can be generated using
+[Doxygen](https://www.doxygen.nl/index.html).
+On Ubuntu/Debian, it should be possible to install it via:
 ```
-apt install doxygen doxygen-gui graphviz
+apt install doxygen doxygen-gui doxygen-latex graphviz
 ```
+Note that the package `doxygen-latex` is needed only if you want to generate
+a printable version of the documentation - a sort of reference manual.
+In addition, the `doxygen-gui` package is needed only if you want to edit
+`doc/doxyfile.in` using the graphical user interface rather than a text editor.
 
-By default, the documentation will be generated if Doxygen is
-found. In particular, a custom target named `doc` will be added to the list
-of CMake targets.
+If Doxygen is installed on your system, a custom CMake target named `doc` will
+be added by default, and the documentation will be re-generated every time you
+build the project.
 
-To re-build the documentation only, simply call:
+Alternatively, to re-build the documentation only, you can call:
 ```
 cmake --build . --target doc
 ```
 
-To *disable* automatic generation of the documentation, you can pass the
+To *disable* the generation of the documentation, you can pass the
 `BUILD_DOC=OFF` argument during the configuration step:
 ```
 cmake .. -DBUILD_DOC=OFF
 ```
+By default, `BUILD_DOC` will be set to `ON` if Doxygen is found on your machine
+and to `OFF` if the package is not detected.
+
+:no_entry: If you do not have Doxygen and try to set `BUILD_DOC` to `ON` anyway,
+CMake will send an error and exit.
+
+
+### Confiuring the Documentation
 
 While running, Doxygen can be rather verbose, printing on the console every
 detail about what it is currently doing. While this is a good thing in general,
@@ -151,4 +164,54 @@ cmake .. -DDOXYGEN_MAKE_LATEX=YES
 
 ## Testing
 
-**TODO**: use GTest for unit-testing
+To check code sanity, tests can be run using
+[Google Test](https://github.com/google/googletest).
+On Ubuntu/Debian, it should be possible to install it via:
+
+```bash
+cd where/you/want/to/store/gtest/sources
+git clone https://github.com/google/googletest.git
+mkdir -p googletest/build
+cd googletest/build
+cmake ..
+cmake --build .
+cmake --install . # might require sudo!
+```
+
+If a valid GTest distribution is found on your machine, CMake will generate the
+target `test`. To build and run the tests, use the following:
+
+```bash
+cmake ..
+cmake --build . # build the project, tests included
+cmake --build . --target test # run the tests
+```
+
+As you can see, tests are built altogether with the other "regular" targets.
+If for any reason you want tests not to be built, use the `BUILD_TESTS` option:
+
+```bash
+cmake .. -DBUILD_TESTS=OFF
+```
+
+To re-enable test compilation, you can use
+
+```bash
+cmake .. -DBUILD_TESTS=ON
+```
+
+Unless specified otherwise, `BUILD_TESTS` will be set to `ON` if GTest is found
+on your machine and to `OFF` if the package is missing. Also note that if you
+pass `BUILD_TESTS=ON` and CMake is not able to find GTest on your machine,
+an error will be thrown.
+
+
+## GitHub Actions
+
+### Continuous Integration
+
+**TODO**
+
+### Documentation in GitHub Pages
+
+**TODO**
