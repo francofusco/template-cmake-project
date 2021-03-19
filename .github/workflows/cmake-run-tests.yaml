@@ -1,4 +1,4 @@
-name: run-tests
+name: CI testing
 on: [push]
 jobs:
   run-tests:
