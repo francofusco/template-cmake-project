@@ -1,8 +1,7 @@
 # PROJECT-NAME-HERE
 
-[![build-documentation](https://github.com/francofusco/template-cmake-project/workflows/build-documentation/badge.svg)](https://francofusco.github.io/template-cmake-project/)
-
-[![run-tests](https://github.com/francofusco/template-cmake-project/actions/workflows/cmake-run-tests.yaml/badge.svg)](https://github.com/francofusco/template-cmake-project/actions/workflows/cmake-run-tests.yaml)
+[![testing](https://github.com/francofusco/template-cmake-project/actions/workflows/cmake-run-tests.yaml/badge.svg)](https://github.com/francofusco/template-cmake-project/actions/workflows/cmake-run-tests.yaml)
+[![documentation](https://github.com/francofusco/template-cmake-project/workflows/build-documentation/badge.svg)](https://francofusco.github.io/template-cmake-project/)
 
 Brief description of this project.
 
