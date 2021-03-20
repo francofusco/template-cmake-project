@@ -1,4 +1,4 @@
-digraph "/home/runner/work/template-cmake-project/template-cmake-project/src/foo" {
+digraph "src/foo" {
   compound=true
   node [ fontsize="10", fontname="Helvetica"];
   edge [ labelfontsize="10", labelfontname="Helvetica"];

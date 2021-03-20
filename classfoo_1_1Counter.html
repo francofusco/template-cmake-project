@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -53,6 +57,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classfoo_1_1Counter.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,11 +88,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespacefoo.html">foo</a></li><li class="navelem"><a class="el" href="classfoo_1_1Counter.html">Counter</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -85,39 +101,33 @@ $(function() {
 <p>A simple class for counting.  
  <a href="classfoo_1_1Counter.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="foo_8hpp_source.html">foo.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="foo_8hpp_source.html">include/foo/foo.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abe696bd0f608ca60b1dc3b616b1f1975"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfoo_1_1Counter.html#abe696bd0f608ca60b1dc3b616b1f1975">Counter</a> (unsigned int max, bool autoreset)</td></tr>
 <tr class="memdesc:abe696bd0f608ca60b1dc3b616b1f1975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a counter which cannot exceed a given maximum.  <a href="classfoo_1_1Counter.html#abe696bd0f608ca60b1dc3b616b1f1975">More...</a><br /></td></tr>
 <tr class="separator:abe696bd0f608ca60b1dc3b616b1f1975"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b903b503ff93f3af32ee7742d82e1ae"><td class="memItemLeft" align="right" valign="top"><a id="a4b903b503ff93f3af32ee7742d82e1ae"></a>
-const unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfoo_1_1Counter.html#a4b903b503ff93f3af32ee7742d82e1ae">currentCount</a> () const</td></tr>
-<tr class="memdesc:a4b903b503ff93f3af32ee7742d82e1ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the current count value. <br /></td></tr>
+<tr class="memitem:a4b903b503ff93f3af32ee7742d82e1ae"><td class="memItemLeft" align="right" valign="top">const unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfoo_1_1Counter.html#a4b903b503ff93f3af32ee7742d82e1ae">currentCount</a> () const</td></tr>
+<tr class="memdesc:a4b903b503ff93f3af32ee7742d82e1ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the current count value.  <a href="classfoo_1_1Counter.html#a4b903b503ff93f3af32ee7742d82e1ae">More...</a><br /></td></tr>
 <tr class="separator:a4b903b503ff93f3af32ee7742d82e1ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dac01edd554224fc6ba9b529bd82a17"><td class="memItemLeft" align="right" valign="top"><a id="a9dac01edd554224fc6ba9b529bd82a17"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfoo_1_1Counter.html#a9dac01edd554224fc6ba9b529bd82a17">countOnce</a> ()</td></tr>
-<tr class="memdesc:a9dac01edd554224fc6ba9b529bd82a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment the counter by one unit. <br /></td></tr>
+<tr class="memitem:a9dac01edd554224fc6ba9b529bd82a17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfoo_1_1Counter.html#a9dac01edd554224fc6ba9b529bd82a17">countOnce</a> ()</td></tr>
+<tr class="memdesc:a9dac01edd554224fc6ba9b529bd82a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment the counter by one unit.  <a href="classfoo_1_1Counter.html#a9dac01edd554224fc6ba9b529bd82a17">More...</a><br /></td></tr>
 <tr class="separator:a9dac01edd554224fc6ba9b529bd82a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e4d4a9ad217c5e36bfd5c58534a16ab"><td class="memItemLeft" align="right" valign="top"><a id="a5e4d4a9ad217c5e36bfd5c58534a16ab"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfoo_1_1Counter.html#a5e4d4a9ad217c5e36bfd5c58534a16ab">reset</a> ()</td></tr>
-<tr class="memdesc:a5e4d4a9ad217c5e36bfd5c58534a16ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the counter to zero. <br /></td></tr>
+<tr class="memitem:a5e4d4a9ad217c5e36bfd5c58534a16ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfoo_1_1Counter.html#a5e4d4a9ad217c5e36bfd5c58534a16ab">reset</a> ()</td></tr>
+<tr class="memdesc:a5e4d4a9ad217c5e36bfd5c58534a16ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the counter to zero.  <a href="classfoo_1_1Counter.html#a5e4d4a9ad217c5e36bfd5c58534a16ab">More...</a><br /></td></tr>
 <tr class="separator:a5e4d4a9ad217c5e36bfd5c58534a16ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:afe06ece82bb5783e643ade8acf80e848"><td class="memItemLeft" align="right" valign="top"><a id="afe06ece82bb5783e643ade8acf80e848"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfoo_1_1Counter.html#afe06ece82bb5783e643ade8acf80e848">count_</a></td></tr>
-<tr class="memdesc:afe06ece82bb5783e643ade8acf80e848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the current count value. <br /></td></tr>
+<tr class="memitem:afe06ece82bb5783e643ade8acf80e848"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfoo_1_1Counter.html#afe06ece82bb5783e643ade8acf80e848">count_</a></td></tr>
+<tr class="memdesc:afe06ece82bb5783e643ade8acf80e848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the current count value.  <a href="classfoo_1_1Counter.html#afe06ece82bb5783e643ade8acf80e848">More...</a><br /></td></tr>
 <tr class="separator:afe06ece82bb5783e643ade8acf80e848"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4800d7477459601788afd7868dc7b8a"><td class="memItemLeft" align="right" valign="top"><a id="aa4800d7477459601788afd7868dc7b8a"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfoo_1_1Counter.html#aa4800d7477459601788afd7868dc7b8a">max_</a></td></tr>
-<tr class="memdesc:aa4800d7477459601788afd7868dc7b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum value that can be reached by the counter. <br /></td></tr>
+<tr class="memitem:aa4800d7477459601788afd7868dc7b8a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfoo_1_1Counter.html#aa4800d7477459601788afd7868dc7b8a">max_</a></td></tr>
+<tr class="memdesc:aa4800d7477459601788afd7868dc7b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum value that can be reached by the counter.  <a href="classfoo_1_1Counter.html#aa4800d7477459601788afd7868dc7b8a">More...</a><br /></td></tr>
 <tr class="separator:aa4800d7477459601788afd7868dc7b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c5569a9d3b3dce6398defd474c0bd7e"><td class="memItemLeft" align="right" valign="top"><a id="a0c5569a9d3b3dce6398defd474c0bd7e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfoo_1_1Counter.html#a0c5569a9d3b3dce6398defd474c0bd7e">autoreset_</a></td></tr>
-<tr class="memdesc:a0c5569a9d3b3dce6398defd474c0bd7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true, the counter can overflow. <br /></td></tr>
+<tr class="memitem:a0c5569a9d3b3dce6398defd474c0bd7e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfoo_1_1Counter.html#a0c5569a9d3b3dce6398defd474c0bd7e">autoreset_</a></td></tr>
+<tr class="memdesc:a0c5569a9d3b3dce6398defd474c0bd7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true, the counter can overflow.  <a href="classfoo_1_1Counter.html#a0c5569a9d3b3dce6398defd474c0bd7e">More...</a><br /></td></tr>
 <tr class="separator:a0c5569a9d3b3dce6398defd474c0bd7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -160,16 +170,159 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9dac01edd554224fc6ba9b529bd82a17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dac01edd554224fc6ba9b529bd82a17">&#9670;&nbsp;</a></span>countOnce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void foo::Counter::countOnce </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Increment the counter by one unit. </p>
+
+</div>
+</div>
+<a id="a4b903b503ff93f3af32ee7742d82e1ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b903b503ff93f3af32ee7742d82e1ae">&#9670;&nbsp;</a></span>currentCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int&amp; foo::Counter::currentCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access the current count value. </p>
+
+</div>
+</div>
+<a id="a5e4d4a9ad217c5e36bfd5c58534a16ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e4d4a9ad217c5e36bfd5c58534a16ab">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void foo::Counter::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reset the counter to zero. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0c5569a9d3b3dce6398defd474c0bd7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c5569a9d3b3dce6398defd474c0bd7e">&#9670;&nbsp;</a></span>autoreset_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool foo::Counter::autoreset_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If true, the counter can overflow. </p>
+
+</div>
+</div>
+<a id="afe06ece82bb5783e643ade8acf80e848"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe06ece82bb5783e643ade8acf80e848">&#9670;&nbsp;</a></span>count_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int foo::Counter::count_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores the current count value. </p>
+
+</div>
+</div>
+<a id="aa4800d7477459601788afd7868dc7b8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4800d7477459601788afd7868dc7b8a">&#9670;&nbsp;</a></span>max_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int foo::Counter::max_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Maximum value that can be reached by the counter. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/runner/work/template-cmake-project/template-cmake-project/include/foo/<a class="el" href="foo_8hpp_source.html">foo.hpp</a></li>
-<li>/home/runner/work/template-cmake-project/template-cmake-project/src/foo/<a class="el" href="foo_8cpp.html">foo.cpp</a></li>
+<li>include/foo/<a class="el" href="foo_8hpp_source.html">foo.hpp</a></li>
+<li>src/foo/<a class="el" href="foo_8cpp.html">foo.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacefoo.html">foo</a></li><li class="navelem"><a class="el" href="classfoo_1_1Counter.html">Counter</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

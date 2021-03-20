@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reset_25',['reset',['../classfoo_1_1Counter.html#a5e4d4a9ad217c5e36bfd5c58534a16ab',1,'foo::Counter']]]
+  ['main_30',['main',['../foo__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'foo_main.cpp']]]
 ];

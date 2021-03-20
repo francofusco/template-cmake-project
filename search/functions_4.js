@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sign_26',['sign',['../namespacefoo.html#ab6d8f45d4d1929e57fd749fd82a68dff',1,'foo']]]
+  ['reset_31',['reset',['../classfoo_1_1Counter.html#a5e4d4a9ad217c5e36bfd5c58534a16ab',1,'foo::Counter']]]
 ];
