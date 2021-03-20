@@ -1,21 +1,24 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.19.4)
 project(foo VERSION 1.0.0)
 
-
-# Define some colors for output formatting
-string(ASCII 27 Esc)
-set(ColourReset "${Esc}[m")
-set(Yellow      "${Esc}[33m")
-set(Blue        "${Esc}[34m")
-
+# Allow using colors in messages. Use with parsimony ;)
+include(cmake/colors.cmake)
 
 #######################
 # LOCATE DEPENDENCIES #
 #######################
 
-# find_package(pkgname)
-# find_package(pkgname QUIET)
-# find_package(pkgname REQUIRED)
+# find_package(pkgname) # warn if not found
+# find_package(pkgname QUIET) # do not warn if not found
+# find_package(pkgname REQUIRED) # error if not found
+# find_package(pkgname 3) # compatible with this major version
+# find_package(pkgname 3.0.5) # minor and patch version is also supported
+# find_package(pkgname 1.2 EXACT) # the version must be this - no more, no less!
+
+# You can do stuff conditionally:
+# if(NOT ${pkgname_FOUND})
+#   message(STATUS "${Yellow}pkgname not found${ColourReset} - some features will not be included")
+# endif(NOT ${pkgname_FOUND})
 
 
 #############
@@ -23,9 +26,9 @@ set(Blue        "${Esc}[34m")
 #############
 
 add_library(${PROJECT_NAME}
-  # Replace the sources with 'INTERFACE' for header-only libraries.
-  # Eg: add_library(${PROJECT_NAME} INTERFACE)
   src/${PROJECT_NAME}/${PROJECT_NAME}.cpp
+  # OPTIONAL: replace the sources with 'INTERFACE' for header-only libraries:
+  #   add_library(${PROJECT_NAME} INTERFACE)
 )
 
 target_include_directories(${PROJECT_NAME}
@@ -33,12 +36,14 @@ target_include_directories(${PROJECT_NAME}
     $<INSTALL_INTERFACE:include>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   # OPTIONAL: add also private headers as follows:
-  # PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/whatever
+  #   PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/whatever
+  # OPTIONAL: use INTERFACE if you have a header-only library!
 )
 
 target_link_libraries(${PROJECT_NAME}
   PUBLIC ""
   PRIVATE ""
+  # OPTIONAL: again, use INTERFACE if you have a header-only library!
 )
 
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
