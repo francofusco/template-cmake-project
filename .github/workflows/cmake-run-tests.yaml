@@ -2,9 +2,6 @@ name: CI testing
 on: [push]
 jobs:
   run-tests:
-    # Run this action only on the main branch
-    # NOTE: perhaps this should be omitted so that it runs tests in every branch?
-    if: contains('refs/heads/main', github.ref)
     # Target OS: Ubuntu.
     runs-on: ubuntu-latest
     # Use bash for all commands.
