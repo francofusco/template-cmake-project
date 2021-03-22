@@ -23,6 +23,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "foo", "index.html", [
+    [ "Main Page", "index.html", null ],
     [ "Example of a Page created in MarkDown", "md_doc_extra_some_page.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
