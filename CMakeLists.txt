@@ -1,3 +1,7 @@
+### This file is an adaptation derived from
+###   github.com/francofusco/template-cmake-project/blob/main/CMakeLists.txt
+### Original Author: Franco FUSCO
+### Source: github.com/francofusco/template-cmake-project
 cmake_minimum_required(VERSION 3.19.4)
 project(foo VERSION 1.0.0)
 

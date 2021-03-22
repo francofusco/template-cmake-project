@@ -56,10 +56,10 @@ if you prefer to install the project somewhere else for any reason) you can
 change the install location during the configuration step. As an example:
 
 ```bash
-cmake .. -DCMAKE_INSTALL_PREFIX=~/foobar
+cmake .. -DCMAKE_INSTALL_PREFIX=~/barbaz
 ```
 
-Would install the header and other compiled targets in the `foobar` directory
+Would install the header and other compiled targets in the `barbaz` directory
 in your home.
 
 If at any point you wish to "uninstall" the project, you can do it thanks to a
@@ -137,12 +137,16 @@ The same documentation can also be generated locally using
 [Doxygen](https://www.doxygen.nl/index.html).
 On Ubuntu/Debian, it should be possible to install it via:
 ```
-apt install doxygen doxygen-gui doxygen-latex graphviz
+apt install doxygen graphviz doxygen-latex
 ```
 Note that the package `doxygen-latex` is needed only if you want to generate
 a printable version of the documentation - a sort of reference manual.
-In addition, the `doxygen-gui` package is needed only if you want to edit
-`doc/doxyfile.in` using the graphical user interface rather than a text editor.
+
+:warning: Please, do *not* use the `doxywizard` (aka `doxygen-gui`) application
+to edit the Doxygen configuration file `doxyfile.in`. In fact, it contains some
+CMake-configurable variables (such as `@GENERATE_LATEX@`) that would be
+overridden by `doxywizard` - it expects them to contain either `YES` or `NO`.
+This would break some of the functionalities described below :sweat_smile:
 
 If Doxygen is installed on your system, a custom CMake target named `doc` will
 be added by default, and the documentation will be re-generated every time you

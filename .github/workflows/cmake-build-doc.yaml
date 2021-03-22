@@ -15,7 +15,7 @@ jobs:
     # Install CMake and Doxygen.
     - name: Install dependencies
       working-directory: ${{github.workspace}}
-      run: sudo apt install cmake doxygen
+      run: sudo apt install cmake doxygen graphviz
     # Clone the repository.
     - uses: actions/checkout@v2
     # Create the build space.
