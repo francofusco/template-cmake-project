@@ -15,18 +15,18 @@ The main goal is to allow one to just write source code and to quickly be able
 to "publish" the project on a GitHub repository that includes a set of nice
 features. These can be summarized as:
 
-Ability to install and reuse a project.
-: Users of your repository should be able to easily compile your project and
+- **Ability to install and reuse a project**
+  Users of your repository should be able to easily compile your project and
   install it on their machine. In particular, your project should be very easy
   to import in other CMake projects.
 
-Providing local and online documentation.
-: If you document your source code with Doxygen docstrings, you can easily
+- **Providing local and online documentation**
+  If you document your source code with Doxygen docstrings, you can easily
   generate an API documentation for your project and/or deploy it online on
   GitHub pages.
 
-Support for unit testing.
-: You will be able to implement tests which can be run locally to check the
+- **Support for unit testing**
+  You will be able to implement tests which can be run locally to check the
   correct functioning of your code. Furthermore, you can setup GitHub actions
   that run these tests whenever you push your code to the remote repository.
 
@@ -37,9 +37,9 @@ The template uses a simple directory structure that should suit the needs of a
 medium-small project. The structure is the following (not alpha-sorted :wink:):
 
 ```
-README.md          # This document, which you will replace with project-README.
-project-README.md  # Quick information for users. It should replace README!
-CMakeLists.txt     # Top-level CMakeLists used to configure the project.
+README.md         # This document, which you will replace with project-README.
+actual-README.md  # Quick information for users. It should replace README!
+CMakeLists.txt    # Top-level CMakeLists used to configure the project.
 # The src folder contains sources, eg, .cpp files. I like to separate the
 # sources used to build libraries and those used to create executables, but
 # you are free to use any other structure.
