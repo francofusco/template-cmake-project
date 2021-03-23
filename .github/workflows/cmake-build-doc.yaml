@@ -1,16 +1,6 @@
 name: documentation
 on: [push]
 jobs:
-  temp-check:
-    # Just to see if we are on a public repo
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-    steps:
-    - name: Echo on public + main
-      run: echo "I am public and on main"
-      if: ${{!github.event.repository.private && contains('refs/heads/main', github.ref)}}
   make-docs:
     # Target OS: Ubuntu.
     runs-on: ubuntu-latest
@@ -38,10 +28,13 @@ jobs:
     - name: Build documentation using Doxygen
       working-directory: ${{github.workspace}}/build
       run: cmake --build . --target doc
-    # Deploy the documentation to GitHub Pages - if we are on main!
+    # Deploy the documentation to GitHub Pages.
+    # However, we do this only if:
+    # - We are on main (we do not want to deploy doc of unstable versions)
+    # - We are on a public repo (AFAIK, GH Pages are always public for personal repos)
     - name: Deploy documentation.
-      # Run this action only on the main branch
-      if: contains('refs/heads/main', github.ref)
+      # Run this action only on the main branch and on public repos
+      if: ${{!github.event.repository.private && contains('refs/heads/main', github.ref)}}
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{secrets.GITHUB_TOKEN}}

@@ -190,14 +190,15 @@ documentation should be ready at `your-gh-username.github.io/your-repo-name`
 :partying_face:
 
 Also, remember that (at least as of today, March 22nd 2021):
-- GitHub actions are free for public repository, while for private ones they
+- GitHub actions are free for public repositories, while for private ones they
   consume some "minutes". Check the details of your account to know how many
   minutes you have available - however, do not worry: they should be enough if
   you just have a couple of private projects that you update once in a while.
-- If your repository is private, you might want to remove the `cmake-build-doc`
-  workflow. In fact, *GitHub Pages are always public, even for private repos!*
-  (AFAIK, exceptions exist for organization-owned repositories, though I am not
-  entirely sure how it works)
+- AFAIK, *GitHub Pages are always public, even for private repos!* For this
+  reason, I have added a conditional that deploys the documentation only if
+  you are pushing on `main` and if the repository is public. This is just to
+  say that if you do not see the documentation appearing on the domain
+  `your-gh-username.github.io/your-repo-name`, it might be due to this check! 
 
 
 ### Update `README.md`
