@@ -2,8 +2,6 @@ name: documentation
 on: [push]
 jobs:
   make-docs:
-    # Run this action only on the main branch
-    if: contains('refs/heads/main', github.ref)
     # Target OS: Ubuntu.
     runs-on: ubuntu-latest
     # Use bash for all commands.
@@ -30,8 +28,10 @@ jobs:
     - name: Build documentation using Doxygen
       working-directory: ${{github.workspace}}/build
       run: cmake --build . --target doc
-    # Deploy the documentation to GitHub Pages.
+    # Deploy the documentation to GitHub Pages - if we are on main!
     - name: Deploy documentation.
+      # Run this action only on the main branch
+      if: contains('refs/heads/main', github.ref)
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{secrets.GITHUB_TOKEN}}
