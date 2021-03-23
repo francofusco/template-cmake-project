@@ -1,6 +1,19 @@
 name: documentation
 on: [push]
 jobs:
+  temp-check:
+    # Just to see if we are on a public repo
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+    - name: Echo on private
+      run: echo "I am private"
+      if: ${{github.event.repository.private}}
+    - name: Echo on public
+      run: echo "I am public"
+      if: ${{github.event.repository.public}}
   make-docs:
     # Target OS: Ubuntu.
     runs-on: ubuntu-latest
