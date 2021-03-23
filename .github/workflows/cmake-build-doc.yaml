@@ -8,18 +8,9 @@ jobs:
       run:
         shell: bash
     steps:
-    - name: Echo on private
-      run: echo "I am private"
-      if: ${{github.event.repository.private}}
-    - name: Echo on private
-      run: echo "I am private"
-      if: ${{!github.event.repository.public}}
-    - name: Echo on public
-      run: echo "I am public"
-      if: ${{github.event.repository.public}}
-    - name: Echo on public
-      run: echo "I am public"
-      if: ${{!github.event.repository.private}}
+    - name: Echo on public + main
+      run: echo "I am public and on main"
+      if: ${{!github.event.repository.private && contains('refs/heads/main', github.ref)}}
   make-docs:
     # Target OS: Ubuntu.
     runs-on: ubuntu-latest
