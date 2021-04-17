@@ -1,3 +1,4 @@
+# see https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 ---
 Language:        Cpp
 # BasedOnStyle:  LLVM
@@ -6,24 +7,24 @@ AlignAfterOpenBracket: Align
 AlignConsecutiveMacros: false
 AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
-AlignEscapedNewlines: Right
+AlignEscapedNewlines: Left # changed
 AlignOperands:   true
-AlignTrailingComments: true
-AllowAllArgumentsOnNextLine: true
-AllowAllConstructorInitializersOnNextLine: true
-AllowAllParametersOfDeclarationOnNextLine: true
-AllowShortBlocksOnASingleLine: Never
+AlignTrailingComments: false # changed
+AllowAllArgumentsOnNextLine: false # changed
+AllowAllConstructorInitializersOnNextLine: false # changed
+AllowAllParametersOfDeclarationOnNextLine: false # changed
+AllowShortBlocksOnASingleLine: Always # changed
 AllowShortCaseLabelsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: All
+AllowShortFunctionsOnASingleLine: Inline # changed
 AllowShortLambdasOnASingleLine: All
 AllowShortIfStatementsOnASingleLine: Never
 AllowShortLoopsOnASingleLine: false
-AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterDefinitionReturnType: None # DEPRECATED
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
-AlwaysBreakTemplateDeclarations: MultiLine
+AlwaysBreakTemplateDeclarations: Yes # changed
 BinPackArguments: true
-BinPackParameters: true
+BinPackParameters: false # changed
 BraceWrapping:
   AfterCaseLabel:  false
   AfterClass:      false
@@ -41,25 +42,26 @@ BraceWrapping:
   SplitEmptyFunction: true
   SplitEmptyRecord: true
   SplitEmptyNamespace: true
-BreakBeforeBinaryOperators: None
-BreakBeforeBraces: Attach
+BreakBeforeBinaryOperators: NonAssignment # changed
+BreakBeforeBraces: Attach # NOTE: if Custom, use BraceWrapping's config
 BreakBeforeInheritanceComma: false
-BreakInheritanceList: BeforeColon
+BreakInheritanceList: BeforeComma # changed
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializersBeforeComma: false
-BreakConstructorInitializers: BeforeColon
+BreakConstructorInitializers: BeforeComma # changed
 BreakAfterJavaFieldAnnotations: false
 BreakStringLiterals: true
 ColumnLimit:     80
 CommentPragmas:  '^ IWYU pragma:'
 CompactNamespaces: false
-ConstructorInitializerAllOnOneLineOrOnePerLine: false
-ConstructorInitializerIndentWidth: 4
-ContinuationIndentWidth: 4
+ConstructorInitializerAllOnOneLineOrOnePerLine: true # changed
+ConstructorInitializerIndentWidth: 0 # changed
+ContinuationIndentWidth: 2 # changed
 Cpp11BracedListStyle: true
 DeriveLineEnding: true
 DerivePointerAlignment: false
 DisableFormat:   false
+# EmptyLineBeforeAccessModifier: LogicalBlock # unsupported?
 ExperimentalAutoDetectBinPacking: false
 FixNamespaceComments: true
 ForEachMacros:
@@ -81,9 +83,9 @@ IncludeIsMainRegex: '(Test)?$'
 IncludeIsMainSourceRegex: ''
 IndentCaseLabels: false
 IndentGotoLabels: true
-IndentPPDirectives: None
+IndentPPDirectives: BeforeHash # changed
 IndentWidth:     2
-IndentWrappedFunctionNames: false
+IndentWrappedFunctionNames: true # changed
 JavaScriptQuotes: Leave
 JavaScriptWrapImports: true
 KeepEmptyLinesAtTheStartOfBlocks: true
@@ -109,20 +111,24 @@ SortIncludes:    true
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: false
 SpaceAfterLogicalNot: false
-SpaceAfterTemplateKeyword: true
+SpaceAfterTemplateKeyword: false # changed
 SpaceBeforeAssignmentOperators: true
+# SpaceBeforeCaseColon: false # unsupported?
 SpaceBeforeCpp11BracedList: false
 SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
-SpaceBeforeParens: ControlStatements
-SpaceBeforeRangeBasedForLoopColon: true
-SpaceInEmptyBlock: false
+SpaceBeforeParens: Never # changed
+SpaceBeforeRangeBasedForLoopColon: false # changed
+SpaceInEmptyBlock: true # changed
 SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 1
 SpacesInAngles:  false
 SpacesInConditionalStatement: false
-SpacesInContainerLiterals: true
+SpacesInContainerLiterals: false # changed
 SpacesInCStyleCastParentheses: false
+# SpacesInLineCommentPrefix:
+#   Minimum:         1
+#   Maximum:         -1
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
 SpaceBeforeSquareBrackets: false

@@ -7,6 +7,8 @@ project(foo VERSION 1.0.0)
 
 # Allow using colors in messages. Use with parsimony ;)
 include(cmake/colors.cmake)
+# Special target to perform code formatting.
+include(cmake/clang-format.cmake)
 
 #######################
 # LOCATE DEPENDENCIES #
@@ -163,8 +165,18 @@ else(${BUILD_TESTS})
   message(STATUS "Tests will NOT be run. If you have GTest installed, you can enable them via -DBUILD_TESTS=ON.")
 endif(${BUILD_TESTS})
 
+
 #########################
 # DOXYGEN DOCUMENTATION #
 #########################
 
 add_subdirectory(doc)
+
+
+################
+# CLANG FORMAT #
+################
+
+clangformat_dir(src)
+clangformat_dir(include)
+add_clangformat_targets()
