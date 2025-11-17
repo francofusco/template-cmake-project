@@ -1,5 +1,14 @@
 name: documentation
+
+permissions:
+  contents: write
+
+# The choice of running this action regardless of the branch is on purpose. The
+# goal is to make sure that documentation can be built no matter the code
+# changes. Note that, however, it will deployed only if the action is run on
+# the main branch - see the "if" condition on the deply step.
 on: [push]
+
 jobs:
   make-docs:
     # Target OS: Ubuntu.
@@ -15,7 +24,7 @@ jobs:
       working-directory: ${{github.workspace}}
       run: sudo apt install cmake doxygen graphviz
     # Clone the repository.
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     # Create the build space.
     - name: Create build directory
       working-directory: ${{github.workspace}}
@@ -33,9 +42,9 @@ jobs:
     # - We are on main (we do not want to deploy doc of unstable versions)
     # - We are on a public repo (AFAIK, GH Pages are always public for personal repos)
     - name: Deploy documentation.
-      # Run this action only on the main branch and on public repos
+      # Run this step only on the main branch and on public repos
       if: ${{!github.event.repository.private && contains('refs/heads/main', github.ref)}}
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{secrets.GITHUB_TOKEN}}
         publish_dir: ${{github.workspace}}/doc/html
