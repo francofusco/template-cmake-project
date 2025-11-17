@@ -1,5 +1,7 @@
 <map id="include/foo/foo.hpp" name="include/foo/foo.hpp">
-<area shape="rect" id="node1" title="Header file for the foo::bar(int) function." alt="" coords="92,5,239,32"/>
-<area shape="rect" id="node2" href="$foo__main_8cpp.html" title="Executable using the foo::bar(int) function." alt="" coords="5,80,163,107"/>
-<area shape="rect" id="node3" href="$foo_8cpp.html" title="Implemenation file for the foo::bar(int) function." alt="" coords="187,80,306,107"/>
+<area shape="rect" id="Node000001" title="Header file for the foo::bar(int) function." alt="" coords="92,5,239,31"/>
+<area shape="rect" id="Node000002" href="$foo__main_8cpp.html" title="Executable using the foo::bar(int) function." alt="" coords="5,79,163,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,42,99,80,96,76,140,38"/>
+<area shape="rect" id="Node000003" href="$foo_8cpp.html" title="Implemenation file for the foo::bar(int) function." alt="" coords="187,79,306,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,38,235,76,232,80,187,42"/>
 </map>
